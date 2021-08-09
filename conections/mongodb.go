@@ -11,7 +11,7 @@ import (
 
 //GetMongoDbConnection get connection of mongodb
 func GetMongoDbConnection() (*mongo.Client, error) {
-	urlCOnection := "mongodb://brandDiscountsUser:brandDiscountsPassword@localhost:27017/?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=false"
+	urlCOnection := "mongodb://brandDiscountsUser:brandDiscountsPassword@serverdb:27017/?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=false"
 
 	client, err := mongo.Connect(context.Background(), options.Client().ApplyURI(urlCOnection))
 

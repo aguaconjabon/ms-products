@@ -38,7 +38,7 @@ func main() {
 
 	api.SetupProductRoutes(app)
 
-	_ = app.Listen(":3001")
+	_ = app.Listen(":8080")
 }
 
 type internalError struct {
