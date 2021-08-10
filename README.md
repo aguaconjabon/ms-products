@@ -1,5 +1,7 @@
 # ms-products
 
+# levantar ms-products con docker
+
 Para poder correr este proyecto es necesario tener levantado en uan imagen docker la base dedatos proporcioanda por walmart
 
 `https://github.com/walmartdigital/brand-discounts-db`
@@ -15,3 +17,10 @@ Para poder correr este proyecto es necesario tener levantado en uan imagen docke
 - una vez realizado esto se puede acceder al microservicio desplegado en el puerto :8080
 
 `http://127.0.0.1:8080/product/`
+
+# levantar proyecto mediante terminal
+
+ejecutar
+`go run .`
+
+en path del proyecto
