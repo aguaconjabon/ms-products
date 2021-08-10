@@ -1,8 +1,17 @@
 # ms-products
 
-docker network create example
+Para poder correr este proyecto es necesario tener levantado en uan imagen docker la base dedatos proporcioanda por walmart
 
-sudo docker build -t go-ms-product .
+`https://github.com/walmartdigital/brand-discounts-db`
 
-se debe generar un link simbolico para que pueda acceder a la bd de mongo que esta en otro contenedor
+- Una vez levantada la imagen de base de dato se debe generar una imagen de este proyecto usando el siguiente comando.
+
+`sudo docker build -t go-ms-product . `
+
+- para levantar el contenedor se debe generar tambien un link simbolico para que el microservicio pueda conectarse al la BD mongo
+
 `docker run -d --rm -p 8080:8080 --name fiberproduct --link mongodb-local:serverdb go-ms-product`
+
+- una vez realizado esto se puede acceder al microservicio desplegado en el puerto :8080
+
+`http://127.0.0.1:8080/product/`

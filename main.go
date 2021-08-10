@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"ms-products/controller/api"
 
 	"github.com/gofiber/fiber/v2"
@@ -9,7 +10,6 @@ import (
 )
 
 func main() {
-
 	app := fiber.New(fiber.Config{
 		ErrorHandler: func(ctx *fiber.Ctx, err error) error {
 			// Status code defaults to 500
@@ -29,7 +29,8 @@ func main() {
 			err = ctx.Status(code).JSON(internalError{
 				Message: msg,
 			})
-			return nil
+
+			return err
 		},
 	})
 	app.Use(
@@ -38,7 +39,12 @@ func main() {
 
 	api.SetupProductRoutes(app)
 
-	_ = app.Listen(":8080")
+	err := app.Listen(":8080")
+
+	if err != nil {
+		fmt.Printf("ERROR LISTEN PORT: %v   ERROR: %v \n", ":8080", err)
+	}
+
 }
 
 type internalError struct {
